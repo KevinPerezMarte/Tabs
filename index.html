@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Kevin Perez CH-7317-->
+  <!--pagina subida en el elace: https://kevinperezmarte.github.io/Proyecto/ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Planilla Ingresos</title>
+  <LINK REL=StyleSheet HREF="formato.css" TYPE="text/css" MEDIA=screen>
+</head>
+
+<body>
+
+  <h1>Clinica Gomez Patiño</h1>
+  <h2>Pasiente:</h2>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTabla(event, 'Pasiente')" id="defaultOpen">Datos Personales</button>
+    <button class="tablinks" onclick="openTabla(event, 'Familiares')">Familiares</button>
+    <button class="tablinks" onclick="openTabla(event, 'Condiciones')">Condicion Pre-Existente</button>
+    <button class="tablinks" onclick="openTabla(event, 'Historial')">Internamientos</button>
+  </div>
+
+  <div id="Pasiente" class="tabcontent">
+    <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+    <h3>Datos del Pasiente</h3>
+    <form formulario="/formulario_pasiente.php">
+      <input type="text" id="nombre" name="Nombre" placeholder="Nombre"><br>
+      <input type="text" id="apellido" name="Apellido" placeholder="Apellido"><br>
+      <input type="number" id="cedula" name="cedula" placeholder="Cedula"><br>
+      <input type="number" id="telefono" name="telefono" placeholder="Telefono"><br>
+      <input type="text" id="direccion" name="direccion" placeholder="Direccion"><br>
+      <input type="number" id="edad" name="edad" min="0" max="99" placeholder="Edad"><br>
+      <button type="button" onclick="DataPersonal()">Guardar</button>
+    </form>
+  </div>
+
+  <div id="Familiares" class="tabcontent">
+    <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+    <h3>Datos Familiares</h3>
+    <p>Respondable</p>
+    <form formulario="/formulario_familiares.php">
+      <input type="text" id="nombref" name="nombref" placeholder="Nombre"><br>
+      <input type="text" id="apellidof" name="apellidof" placeholder="Apellido"><br>
+      <input type="number" id="edadf" name="edadf" placeholder="Edad"><br>
+      <label for="parentesco">Parentesco</label>
+      <select id="parentesco" name="parentesco" onchage="Familiares();">
+        <option value="Padre">Padre</option>
+        <option value="Madre">Madre</option>
+        <option value="Conyugue">Conyugue</option>
+        <option value="Hijo">Hijo/a</option>
+        <option value="Hermano">Hermano/a</option>
+      </select>
+      <p>Segundo Contacto</p>
+      <input type="text" id="nombref2" name="nombref2" placeholder="Nombre"><br>
+      <input type="text" id="apellidof2" name="apellidof2" placeholder="Apellido"><br>
+      <input type="number" id="edadf2" name="edadf2" placeholder="Edad"><br>
+      <label for="parentesco">Parentesco</label>
+      <select id="parentesco2" name="parentesco2" onchage="Familiares();">
+        <option value="Padre">Padre</option>
+        <option value="Madre">Madre</option>
+        <option value="Conyugue">Conyugue</option>
+        <option value="Hijo">Hijo/a</option>
+        <option value="Hermano">Hermano/a</option>
+      </select><br><br>
+      <button type="button" onclick="Familiares()">Guardar</button>
+    </form>
+  </div>
+
+  <div id="Condiciones" class="tabcontent">
+    <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+    <h3>Enfermedades</h3>
+    <form formulario="/formulario_enfermedades.php">
+      <label for="enfermedad">Enfermedad :</label>
+      <select id="enfermedad" name="enfermedad" onchage="Enfermedades();">
+        <option value="Diabetes">Diabetes</option>
+        <option value="Hipertension">Hipertension</option>
+        <option value="Otras">Otras</option>
+      </select>
+      <label for="tiempo">Tiempo Padeciendola :</label>
+      <select id="tiempo" name="tiempo" onchage="Enfermedades();">
+        <option value="1/4">1 a 4 Años</option>
+        <option value="5/10">5 a 10 Años</option>
+        <option value="10/20">Mas de 10 Años</option>
+      </select><br><br>
+      <label for="enfermedad2">Enfermedad :</label>
+      <select id="enfermedad2" name="enfermedad2" onchage="Enfermedades();">
+        <option value="Diabetes">Diabetes</option>
+        <option value="Hipertension">Hipertension</option>
+        <option value="Otras">Otras</option>
+      </select>
+      <label for="tiempo2">Tiempo Padeciendola :</label>
+      <select id="tiempo2" name="tiempo2" onchage="Enfermedades();">
+        <option value="1/4">1 a 4 Años</option>
+        <option value="5/10">5 a 10 Años</option>
+        <option value="10/20">Mas de 10 Años</option>
+      </select><br><br>
+      <textarea id="notaenfermedad" name="notaenfermedad" placeholder="Comentario"
+        style="height:100px; width:150 ;"></textarea><br><br>
+
+      <button type="button" onclick="Enfermedades()">Guardar</button>
+    </form>
+
+  </div>
+  <div id="Historial" class="tabcontent">
+    <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+    <h3>Internamientos Anteriores</h3>
+    <form formulario="/formulario_ingresos.php">
+      <input type="text" id="centro" name="centro" placeholder="Centro Medico">
+      <input type="date" id="fecha" name="fecha" placeholder="Fecha del Ingreso"><br>
+      <input type="text" id="centro2" name="centro" placeholder="Centro Medico">
+      <input type="date" id="fecha2" name="fecha" placeholder="Fecha del Ingreso"><br>
+      <textarea id="descripcion" name="descripcion" placeholder="Comentario Adicional"
+        style="height:50px; width:50 ;"></textarea>
+
+      <button type="button" onclick="Ingresos()">Guardar</button>
+    </form>
+  </div>
+  <script src="accion.js"> </script>
+  <script src="contenedor.js"> </script>
+
+</body>
+
+</html>
